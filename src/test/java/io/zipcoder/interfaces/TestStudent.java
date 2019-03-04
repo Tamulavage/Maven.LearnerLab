@@ -48,4 +48,26 @@ public class TestStudent {
         Assert.assertEquals(expected, actual);
 
     }
+
+    @Test
+    public void testImplementation(){
+        // Given
+        Student student = new Student();
+
+        // When
+
+        // Then
+        Assert.assertTrue(student instanceof Learner);
+    }
+
+    @Test
+    public void testInheritance(){
+        // Given
+        Student student = new Student();
+
+        // When
+
+        // Then
+        Assert.assertTrue(student instanceof Person);
+    }
 }
