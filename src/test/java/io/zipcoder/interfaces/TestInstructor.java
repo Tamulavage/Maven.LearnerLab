@@ -8,7 +8,7 @@ public class TestInstructor {
     @Test
     public void testImplementation(){
         // Given
-        Instructor instructor = new Instructor();
+        Instructor instructor = new Instructor(1l);
 
         // When
 
@@ -19,7 +19,7 @@ public class TestInstructor {
     @Test
     public void testInheritance(){
         // Given
-        Instructor instructor = new Instructor();
+        Instructor instructor = new Instructor(1l);
 
         // When
 
@@ -30,8 +30,8 @@ public class TestInstructor {
     @Test
     public void testTeach(){
         // Given
-        Instructor instructor = new Instructor();
-        Student student = new Student();
+        Instructor instructor = new Instructor(1l);
+        Student student = new Student(1l);
         Double expected = 1d;
 
         // When
@@ -45,9 +45,9 @@ public class TestInstructor {
     @Test
     public void testLecture(){
         // Given
-        Instructor instructor = new Instructor();
-        Student student1 = new Student();
-        Student student2 = new Student();
+        Instructor instructor = new Instructor(1l);
+        Student student1 = new Student(1l);
+        Student student2 = new Student(1l);
         Student[] students = {student1, student2};
         Double expected = 1d;
         Double hourSentIn = 2d;

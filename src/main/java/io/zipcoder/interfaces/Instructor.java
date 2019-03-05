@@ -13,4 +13,9 @@ public class Instructor extends Person implements Teacher {
         student.learn(numberOfHours);
     }
 
+    public Instructor (long id){
+        super(id);
+    }
+
+
 }

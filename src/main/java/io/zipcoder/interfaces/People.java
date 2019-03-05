@@ -1,11 +1,12 @@
 package io.zipcoder.interfaces;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
-public class People {
+public class People implements Iterable <Person>{
     
-    ArrayList<Person> personList;
+    private ArrayList<Person> personList;
     
     public People(){
         personList = new ArrayList<Person>();
@@ -48,4 +49,8 @@ public class People {
          p = personList.toArray(p);
          return p;
     }
+
+    public Iterator<Person> iterator() {return personList.iterator();
+    }
+
 }

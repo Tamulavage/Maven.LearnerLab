@@ -3,7 +3,8 @@ package io.zipcoder.interfaces;
 public class Student extends Person implements Learner{
     private Double totalStudyTime;
 
-    public Student(){
+    public Student(long id){
+        super(id);
         this.totalStudyTime = 0d;
     }
 

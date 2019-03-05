@@ -11,7 +11,7 @@ public class TestStudent {
         Double expected = 0d;
 
         // When
-        Student student = new Student();
+        Student student = new Student(1l);
         Double actual = student.getTotalStudyTime();
 
         // Then
@@ -22,7 +22,7 @@ public class TestStudent {
     public void testLearnMethod(){
         // Given
         Double expected = 1d;
-        Student student = new Student();
+        Student student = new Student(1l);
 
         // When
        student.learn(1d);
@@ -37,7 +37,7 @@ public class TestStudent {
     public void testLearnMethodTwice(){
         // Given
         Double expected = 2d;
-        Student student = new Student();
+        Student student = new Student(1l);
 
         // When
         student.learn(1d);
@@ -52,7 +52,7 @@ public class TestStudent {
     @Test
     public void testImplementation(){
         // Given
-        Student student = new Student();
+        Student student = new Student(1l);
 
         // When
 
@@ -63,7 +63,7 @@ public class TestStudent {
     @Test
     public void testInheritance(){
         // Given
-        Student student = new Student();
+        Student student = new Student(1l);
 
         // When
 
