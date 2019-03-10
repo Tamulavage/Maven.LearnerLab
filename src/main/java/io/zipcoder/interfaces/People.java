@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
 
-public class People implements Iterable <Person>{
+public abstract class People <E extends Person> implements Iterable <E>{
     
-    private ArrayList<Person> personList;
+     ArrayList<E> personList;
     
     public People(){
-        personList = new ArrayList<Person>();
+        personList = new ArrayList<E>();
     }
 
-    public void add(Person person) {
+    public void add(E person) {
         this.personList.add(person);
     }
 
@@ -29,9 +29,9 @@ public class People implements Iterable <Person>{
         this.personList.remove(findById(id));
     }
 
-    public Person findById(Long id) {
-        Person person = null;
-        for (Person ele: personList) {
+    public  E findById(Long id) {
+        E person = null;
+        for (E ele: personList) {
             if(id.equals(ele.getId()))
             {
                 person = ele;
@@ -44,13 +44,10 @@ public class People implements Iterable <Person>{
         personList.clear();
     }
 
-    public Person[] getArray(){
-         Person[]  p = new Person[personList.size()];
-         p = personList.toArray(p);
-         return p;
-    }
+    public abstract E[] getArray();
 
-    public Iterator<Person> iterator() {return personList.iterator();
-    }
+
+    public  Iterator<E> iterator()
+   {return personList.iterator(); }
 
 }

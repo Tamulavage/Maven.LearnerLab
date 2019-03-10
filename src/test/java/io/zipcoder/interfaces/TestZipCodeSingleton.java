@@ -1,25 +1,27 @@
 package io.zipcoder.interfaces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class TestZipCodeSingleton {
+    ZipCodeWilmington zipCodeWilmington = ZipCodeWilmington.getInstance();
+    Students studentsArrayList = zipCodeWilmington.getStudents();
+
 
     @Test
     public void TestZipCodeSingletonHostLectureHostLectureTeacher() {
         // Given
 
-        ZipCodeWilmington zipCodeWilmington = ZipCodeWilmington.getInstance();
+
         Instructors teachersArrayList = zipCodeWilmington.getInstructors();
-        Students studentsArrayList = zipCodeWilmington.getStudents();
         Person[] teachers = teachersArrayList.getArray();
         Person[] students = studentsArrayList.getArray();
         int amountOfStudents = students.length;
         int expected = 3;
-
 
 
         // When
@@ -40,8 +42,7 @@ public class TestZipCodeSingleton {
     @Test
     public void TestZipCodeSingletonHostLectureHostLectureByID() {
         // Given
-        ZipCodeWilmington zipCodeWilmington = ZipCodeWilmington.getInstance();
-        Students studentsArrayList = zipCodeWilmington.getStudents();
+
         Person[] students = studentsArrayList.getArray();
         int amountOfStudents = students.length;
         int expected = 3;

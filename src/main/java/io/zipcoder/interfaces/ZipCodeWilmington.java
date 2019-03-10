@@ -27,24 +27,15 @@ public class ZipCodeWilmington {
 
     public void hostLecture(Teacher teacher, double numberOfHours){
 
-        Person[] person = students.getArray();
-        Learner[] learners = new Learner[person.length];
-        for(int i =0; i<person.length; i++){
-            learners[i]=(Learner) person[i];
-        }
 
-        teacher.lecture(learners , numberOfHours);
+
+        teacher.lecture(students.getArray() , numberOfHours);
     }
 
     public void hostLecture(Long id, double numberOfHours){
 
         Instructor instructor = (Instructor) instructors.findById(id);
-        Person[] person = students.getArray();
-        Learner[] learners = new Learner[person.length];
-        for(int i =0; i<person.length; i++){
-            learners[i]=(Learner) person[i];
-        }
 
-        instructor.lecture(learners, numberOfHours);
+        instructor.lecture(students.getArray(), numberOfHours);
     }
 }

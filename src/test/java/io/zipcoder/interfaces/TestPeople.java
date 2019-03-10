@@ -1,16 +1,22 @@
 package io.zipcoder.interfaces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestPeople {
+    Students people;
+
+    @Before
+    public void clearStudentList(){
+        people = Students.getInstance();
+    }
 
     @Test
     public void testAddOne(){
         // Given
-        People people = new People();
-        Person person = new Person(100l);
-        Integer expected = 1;
+        Student person = new Student(100l);
+        Integer expected = people.getCount()+1;
 
         // When
         people.add(person);
@@ -23,10 +29,9 @@ public class TestPeople {
     @Test
     public void testAddTwo(){
         // Given
-        People people = new People();
-        Person person = new Person(100l);
-        Person person2 = new Person(101l);
-        Integer expected = 2;
+        Student person = new Student(100l);
+        Student person2 = new Student(101l);
+        Integer expected = people.getCount()+2;
 
         // When
         people.add(person);
@@ -41,9 +46,8 @@ public class TestPeople {
     public void testRemoveExists(){
 
         //Given
-        People people = new People();
-        Person person = new Person( 200l);
-        Integer expected = 0;
+        Student person = new Student( 200l);
+        Integer expected = people.getCount();
         people.add(person);
 
         // When
@@ -57,9 +61,8 @@ public class TestPeople {
     @Test
     public void testRemoveNotExists(){
         //Given
-        People people = new People();
-        Person person = new Person( 200l);
-        Integer expected = 0;
+        Student person = new Student( 200l);
+        Integer expected = people.getCount();
 
         // When
         people.remove(person);
@@ -73,11 +76,10 @@ public class TestPeople {
     public void testRemoveExistsWithThree(){
 
         //Given
-        People people = new People();
-        Person person = new Person( 200l);
-        Person person2 = new Person( 201l);
-        Person person3 = new Person( 202l);
-        Integer expected = 2;
+        Student person = new Student( 200l);
+        Student person2 = new Student( 201l);
+        Student person3 = new Student( 202l);
+        Integer expected = people.getCount()+2;
         people.add(person);
         people.add(person2);
         people.add(person3);
@@ -95,11 +97,10 @@ public class TestPeople {
     public void testRemoveBNyIdExistsWithThree(){
 
         //Given
-        People people = new People();
-        Person person = new Person( 200l);
-        Person person2 = new Person( 201l);
-        Person person3 = new Person( 202l);
-        Integer expected = 2;
+        Student person = new Student( 200l);
+        Student person2 = new Student( 201l);
+        Student person3 = new Student( 202l);
+        Integer expected = people.getCount()+2;
         people.add(person);
         people.add(person2);
         people.add(person3);
@@ -117,10 +118,9 @@ public class TestPeople {
     public void testRemoveAll(){
 
         //Given
-        People people = new People();
-        Person person = new Person( 200l);
-        Person person2 = new Person( 201l);
-        Person person3 = new Person( 202l);
+        Student person = new Student( 200l);
+        Student person2 = new Student( 201l);
+        Student person3 = new Student( 202l);
         Integer expected = 0;
         people.add(person);
         people.add(person2);
@@ -138,9 +138,8 @@ public class TestPeople {
     @Test
     public void testFindByIdExists(){
         //Given
-        People people = new People();
         Long id = 999l;
-        Person expected = new Person( id);
+        Student expected = new Student( id);
         people.add(expected);
 
         // When
@@ -154,9 +153,8 @@ public class TestPeople {
     @Test
     public void testFindByIdNotExists(){
         //Given
-        People people = new People();
         Long id = 999l;
-        Person person = new Person( 100l);
+        Student person = new Student( 100l);
         people.add(person);
 
         // When
@@ -170,18 +168,19 @@ public class TestPeople {
     @Test
     public void testGerArray(){
         // Given
-        People people = new People();
-        Person person = new Person(100l);
-        Person person2 = new Person(101l);
-        Person[] expected = {person, person2};
+        Student person = new Student(100l);
+        Student person2 = new Student(101l);
+        //Student[] expected = {person, person2};
+        Integer expectedSize = people.getCount()+2;
 
         // When
         people.add(person);
         people.add(person2);
         Person[] actual = people.getArray();
+        Integer actualLength = actual.length;
 
         // Then
-        Assert.assertArrayEquals(expected, actual);
+        Assert.assertEquals(expectedSize, actualLength);
 
     }
 

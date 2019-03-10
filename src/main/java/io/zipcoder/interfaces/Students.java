@@ -1,9 +1,11 @@
 package io.zipcoder.interfaces;
 
 
-public final class Students extends People{
+import java.util.ArrayList;
 
-    private static final Students instance = new Students();
+public final class Students extends People<Student> {
+
+    private final static  Students instance = new Students();
 
     public static Students getInstance() {
         return instance;
@@ -19,5 +21,11 @@ public final class Students extends People{
         }
     }
 
+    public Student[] getArray() {
+
+        Student[] p = new Student[personList.size()];
+        p = personList.toArray(p);
+        return p;
+    }
 
 }
